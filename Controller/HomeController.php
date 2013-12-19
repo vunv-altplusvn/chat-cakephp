@@ -23,7 +23,18 @@ App::uses('Controller', 'Controller');
  */
 class HomeController extends AppController {
 
+	function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allow('index');
+	}
+
 	function index() {
-		echo 'index';die;
+		if ($this->isLoggedIn()) {
+			$this->loadModel('Room');
+			$data = array(
+				'arrRoom' => $this->Room->getAllRoom(),
+			);
+			$this->set($data);
+		}
 	}
 }

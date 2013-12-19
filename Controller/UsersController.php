@@ -29,14 +29,21 @@ class UsersController extends AppController {
 	}
 
 	function login() {
-		// echo 'login';
+		if ($this->isLoggedIn()) return $this->redirect('/');
+		if ($this->request->is('post')) {
+	        if ($this->Auth->login()) {
+	            return $this->redirect($this->Auth->redirect());
+	        }
+	        $this->Session->setFlash('Invalid username or password, try again', 'default', array(), 'login');
+	    }
 	}
 
 	function logout() {
-		// echo 'logout';die;
+		return $this->redirect($this->Auth->logout());
 	}
 
 	function register() {
+		if ($this->isLoggedIn()) return $this->redirect('/');
 		if ($this->request->is('post')) {
             $this->User->create();
             if ($this->User->save($this->request->data)) {

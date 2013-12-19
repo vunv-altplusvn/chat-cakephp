@@ -27,9 +27,10 @@ class AppController extends Controller {
 		'Session',
 		'Auth' => array(
 			'loginRedirect' => array('controller' => 'home', 'action' => 'index'),
-			'LogoutRegirect' => array('controller' => 'home', 'action' => 'index'),
+			'LogoutRegirect' => '/login',
+			'loginAction' => '/login',
 			'authError' => '404',
-			'authorize'=> array('controller'),
+			'authorize'=> array('Controller'),
 		),
 	);
 
@@ -39,6 +40,11 @@ class AppController extends Controller {
 	}
 
 	public function isAuthorized($user) {
+		return true;
+	}
+
+	protected function isLoggedIn() {
+		if($this->Auth->user() === NULL) return false;
 		return true;
 	}
 }

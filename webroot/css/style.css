@@ -1,9 +1,21 @@
 body {
-  padding-top: 40px;
+  padding-top: 20px;
   padding-bottom: 40px;
-  background-color: #eee;
+  /*background-color: #eee;*/
 }
-
+.wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.header {
+    border-bottom: 1px solid #e5e5e5;
+}
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
 .form-signin {
   max-width: 330px;
   padding: 15px;
@@ -29,18 +41,83 @@ body {
   z-index: 2;
 }
 .form-signin input {
-	border-radius: 0;
+    border-radius: 0;
 }
 .form-signin input.first{
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: none;
 }
 .form-signin input.last {
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;	
-	border-top: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;    
+    border-top: none;
 }
 .form-signin button {
-	margin-top: 20px;
+    margin-top: 20px;
+}
+
+#chat-box {
+    border: 1px solid #a4a4a4;
+    width: 100%;
+    border-radius: 5px;
+}
+
+#content-box {
+    height: 500px;
+    width: 100%;
+    overflow: auto;
+    border-bottom: 1px solid #a4a4a4;
+}
+
+#send-box {
+    line-height: 30px;
+    padding: 5px;
+}
+
+#send-box form {
+    margin-bottom: 0px;
+}
+
+#send-box #message {
+    width: 660px;
+    padding: 0 10px;
+    height: 36px;
+    font-size: 20px;
+}
+
+#send {
+    width: 120px !important;
+    height: 36px;
+    font-size: 18px;
+}
+
+.m {
+    padding: 10px 15px 0 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.m p.content {
+    font-size: 1em;
+}
+.m p.content input {
+  padding: 5px 10px;
+  width: 700px;
+  border: none;
+}
+.m p.content input.active {
+  border: 1px solid #ccc;
+}
+.m p.content span {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.m p.meta {
+    font-size: 0.9em;
+    text-align: right;
+    margin-bottom: 2px;
+}
+
+#content-box .m:last-child {
+    border-bottom: none;
 }

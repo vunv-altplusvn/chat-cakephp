@@ -21,10 +21,15 @@
 	Router::connect('/login', array('controller' => 'Users', 'action' => 'login'));
 	Router::connect('/logout', array('controller' => 'Users', 'action' => 'logout'));
 	Router::connect('/register', array('controller' => 'Users', 'action' => 'register'));
+
+
+	Router::connect('/room/:id', array('controller' => 'Room', 'action' => 'view'), array('id' => '[0-9]+'));
+
+
 /**
  * ...and connect the rest of 'Pages' controller's URLs.
  */
-	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	// Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

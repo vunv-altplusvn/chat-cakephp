@@ -25,7 +25,7 @@ class User extends AppModel {
 	public $validate = array(
         'username' => array(
             'required' => array(
-                'rule' => array(),
+                'rule' => array('notEmpty'),
                 'message' => 'A username is required'
             )
         ),
@@ -45,6 +45,7 @@ class User extends AppModel {
 
 	public function beforeSave($options = array()) {
 		parent::beforeSave($options);
-		if (isset($this->data['User']['password'])) $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
+		if (isset($this->data['User']['password']))
+            $this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
 	}
 }
